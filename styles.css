@@ -295,9 +295,22 @@ ul, ol {
 
 .nav-toggle-btn {
   display: none;
+  min-width: 44px;
+  min-height: 44px;
   padding: 8px;
   color: var(--text-primary);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.nav-toggle-btn:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-medium);
 }
 
 /* ==========================================================================
@@ -1883,137 +1896,6 @@ ul, ol {
 }
 
 /* ==========================================================================
-   Responsive Breakpoints & Mobile Optimization
-   ========================================================================== */
-@media (max-width: 1024px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .hero-visual {
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
-  .evolution-track {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .project-card-header {
-    grid-template-columns: 1fr;
-    padding: 32px;
-  }
-
-  .case-study-body {
-    padding: 32px;
-  }
-
-  .narrative-section-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .capabilities-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .cert-showcase-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-photo-card {
-    position: static;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .progression-card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .progression-connector {
-    transform: rotate(90deg);
-  }
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: 64px 0;
-  }
-
-  .site-header {
-    height: 64px;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    border-bottom: 1px solid var(--border-subtle);
-    flex-direction: column;
-    padding: 24px;
-    gap: 16px;
-    box-shadow: var(--shadow-lg);
-    display: none;
-  }
-
-  .nav-menu.open {
-    display: flex;
-  }
-
-  .nav-toggle-btn {
-    display: block;
-  }
-
-  .evolution-track {
-    grid-template-columns: 1fr;
-  }
-
-  .decisions-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .showcase-split-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .philosophy-questions-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .capabilities-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cert-course-list {
-    grid-template-columns: 1fr;
-  }
-
-  .intersection-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-card-header {
-    padding: 24px;
-  }
-
-  .case-study-body {
-    padding: 20px;
-  }
-
-  .contact-card {
-    padding: 40px 24px;
-  }
-}
-
-/* ==========================================================================
    Social Profiles (Hero, Contact, Footer)
    ========================================================================== */
 .hero-social-row {
@@ -2030,6 +1912,7 @@ ul, ol {
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 .social-pill {
@@ -2045,6 +1928,7 @@ ul, ol {
   color: var(--text-secondary);
   box-shadow: var(--shadow-xs);
   transition: all var(--transition-base);
+  touch-action: manipulation;
 }
 
 .social-pill:hover {
@@ -2068,7 +1952,7 @@ ul, ol {
 .contact-social-label {
   font-size: 0.88rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .contact-social-links {
@@ -2090,7 +1974,10 @@ ul, ol {
   font-weight: 600;
   color: #ffffff;
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transition: all var(--transition-base);
+  min-height: 42px;
+  touch-action: manipulation;
 }
 
 .contact-social-btn:hover {
@@ -2098,4 +1985,605 @@ ul, ol {
   border-color: #ffffff;
   transform: translateY(-2px);
   color: #ffffff;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints & Mobile Optimization
+   ========================================================================== */
+
+@keyframes slideDownMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Large Tablet / Small Laptop (1024px to 1200px) --- */
+@media (max-width: 1200px) {
+  .evolution-track {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+}
+
+/* --- Tablet Landscape (901px to 1024px) --- */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-visual {
+    max-width: 440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .project-card-header {
+    grid-template-columns: 1fr;
+    padding: 32px 28px;
+    gap: 20px;
+  }
+
+  .project-preview-wrap {
+    padding: 28px 28px;
+  }
+
+  .case-study-body {
+    padding: 32px 28px;
+  }
+
+  .narrative-section-grid {
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+  }
+
+  .capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .cert-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .about-photo-card {
+    position: static;
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .progression-card-grid {
+    grid-template-columns: 1fr 48px 1fr;
+    gap: 16px;
+  }
+
+  .philosophy-questions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* --- Tablet Portrait (769px to 900px) --- */
+@media (max-width: 900px) {
+  .preview-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .narrative-section-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 28px 0;
+  }
+
+  .progression-card-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .progression-connector {
+    transform: rotate(90deg);
+    margin: 4px 0;
+  }
+
+  .showcase-split-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* --- Mobile Landscape & Standard Tablets (601px to 768px) --- */
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .site-header {
+    height: 64px;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
+    flex-direction: column;
+    padding: 20px 24px 28px;
+    gap: 8px;
+    box-shadow: var(--shadow-xl);
+    display: none;
+    z-index: 999;
+    animation: slideDownMenu 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-toggle-btn {
+    display: inline-flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 12px 4px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  }
+
+  .nav-link:last-of-type {
+    border-bottom: none;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .evolution-track {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .decisions-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cert-course-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .intersection-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .project-card-header {
+    padding: 24px 20px;
+  }
+
+  .project-preview-wrap {
+    padding: 24px 20px;
+  }
+
+  .case-study-body {
+    padding: 24px 20px;
+  }
+
+  .philosophy-banner {
+    padding: 36px 24px;
+    border-radius: var(--radius-lg);
+  }
+
+  .contact-card {
+    padding: 44px 24px;
+    border-radius: var(--radius-lg);
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+}
+
+/* --- Mobile Phones Portrait (481px to 600px) --- */
+@media (max-width: 600px) {
+  .section {
+    padding: 52px 0;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .preview-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .preview-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .case-study-footer-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    padding: 20px 16px;
+    gap: 12px;
+  }
+
+  .case-study-footer-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .philosophy-questions-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .cert-footer {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 12px;
+    padding: 18px 20px;
+  }
+
+  .cert-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .contact-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .browser-bar {
+    max-width: 200px;
+    font-size: 0.7rem;
+  }
+
+  .drawer-top-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 12px 18px;
+  }
+}
+
+/* --- Compact Mobile Devices (361px to 480px) --- */
+@media (max-width: 480px) {
+  .container,
+  .container-narrow,
+  .container-wide {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-section {
+    padding: 32px 0 48px;
+  }
+
+  .hero-portrait-card {
+    padding: 8px;
+    border-radius: var(--radius-lg);
+  }
+
+  .hero-floating-badge {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 10px 12px;
+  }
+
+  .floating-badge-label {
+    font-size: 0.68rem;
+  }
+
+  .floating-badge-val {
+    font-size: 0.78rem;
+  }
+
+  .hero-floating-badge svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.15;
+  }
+
+  .hero-lead {
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+
+  .hero-pillars {
+    gap: 6px;
+    margin-bottom: 28px;
+  }
+
+  .pillar-chip {
+    font-size: 0.78rem;
+    padding: 5px 10px;
+  }
+
+  .hero-social-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .hero-social-row > a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .social-pill {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  .evolution-track {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .project-card {
+    margin-bottom: 32px;
+    border-radius: var(--radius-lg);
+  }
+
+  .project-card-header {
+    padding: 18px 14px;
+  }
+
+  .project-headline {
+    font-size: 1.4rem;
+  }
+
+  .project-summary {
+    font-size: 0.92rem;
+  }
+
+  .project-stats-card {
+    padding: 14px 16px;
+  }
+
+  .stats-number {
+    font-size: 1.75rem;
+  }
+
+  .project-preview-wrap {
+    padding: 18px 14px;
+  }
+
+  .case-study-body {
+    padding: 18px 12px;
+  }
+
+  .screenshot-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 10px 12px;
+    font-size: 0.78rem;
+  }
+
+  .progression-pillar {
+    padding: 20px 14px;
+  }
+
+  .progression-title {
+    font-size: 1.2rem;
+  }
+
+  .progression-synthesis {
+    padding: 18px 14px;
+  }
+
+  .philosophy-banner {
+    padding: 28px 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .philosophy-heading {
+    font-size: 1.5rem;
+  }
+
+  .capability-card {
+    padding: 20px 14px;
+  }
+
+  .cert-header {
+    padding: 20px 14px 14px;
+  }
+
+  .cert-title {
+    font-size: 1.25rem;
+  }
+
+  .cert-body {
+    padding: 18px 14px;
+  }
+
+  .about-photo-card {
+    padding: 10px;
+    border-radius: var(--radius-lg);
+  }
+
+  .intersection-box {
+    padding: 18px 14px;
+  }
+
+  .contact-card {
+    padding: 32px 14px;
+    border-radius: var(--radius-lg);
+  }
+
+  .contact-title {
+    font-size: 1.75rem;
+  }
+
+  .contact-social-row {
+    margin-top: 24px;
+    padding-top: 18px;
+    width: 100%;
+  }
+
+  .contact-social-links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .contact-social-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.84rem;
+  }
+
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  .modal-content {
+    border-radius: var(--radius-lg);
+    max-height: 94vh;
+  }
+
+  .modal-header {
+    padding: 14px 16px;
+  }
+
+  .modal-title {
+    font-size: 1rem;
+  }
+
+  .modal-body {
+    padding: 14px 12px;
+  }
+
+  .lightbox-overlay {
+    padding: 12px;
+  }
+
+  .lightbox-close-btn {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .lightbox-caption {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+  }
+}
+
+/* --- Ultra Compact Mobile (<= 360px, e.g. iPhone SE 1st gen, Galaxy Fold outer) --- */
+@media (max-width: 360px) {
+  .brand-avatar {
+    width: 28px;
+    height: 28px;
+  }
+
+  .brand-name {
+    font-size: 0.88rem;
+  }
+
+  .brand-role {
+    font-size: 0.62rem;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .nav-actions .btn-sm {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    min-height: 36px;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Touch device optimizations (prevent sticky hover effects) */
+@media (hover: none) {
+  .hero-portrait-card:hover .hero-portrait-img,
+  .decision-card:hover,
+  .evolution-step:hover,
+  .capability-card:hover,
+  .device-frame:hover,
+  .social-pill:hover,
+  .contact-social-btn:hover {
+    transform: none;
+  }
 }
